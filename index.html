@@ -140,7 +140,7 @@
 
     .arrow {
         cursor: pointer;
-        font-size: 2em;
+        font-size: 4em; /* 将箭头字体大小放大一倍 */
         user-select: none;
         color: #ffb6c1; /* 设置箭头颜色为浅粉色 */
     }
@@ -153,7 +153,7 @@
 
     .playButton {
         flex: 1 0 25%; /* 每个按钮占据容器的25%宽度 */
-        height: 100px; /* 调整按钮高度 */
+        height: 200px; /* 将按钮高度放大一倍 */
         background-color: transparent;
         border: none;
         cursor: pointer;
@@ -165,7 +165,7 @@
 
     @media (max-width: 768px) {
         .playButton {
-            height: 80px; /* 在较小屏幕上调整按钮高度 */
+            height: 160px; /* 在较小屏幕上调整按钮高度 */
         }
     }
 </style>
@@ -241,6 +241,7 @@
         });
     });
 </script>
+
 
 			
         </div>
