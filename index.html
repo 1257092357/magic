@@ -134,7 +134,8 @@
         transform: translateX(-50%);
         display: flex;
         align-items: center;
-        width: 1080px; /* 设置容器宽度 */
+        width: 100%; /* 设置容器宽度为100% */
+        max-width: 1080px; /* 最大宽度为1080px */
     }
 
     .arrow {
@@ -147,20 +148,25 @@
     .buttonWrapper {
         display: flex;
         overflow: hidden; /* 隐藏超出部分 */
-        width: 100%; /* 设置按钮容器宽度 */
+        flex: 1; /* 使按钮容器占据剩余空间 */
     }
 
     .playButton {
-        width: 270px; /* 调整按钮宽度 */
+        flex: 1 0 25%; /* 每个按钮占据容器的25%宽度 */
         height: 100px; /* 调整按钮高度 */
         background-color: transparent;
         border: none;
         cursor: pointer;
-        flex: 0 0 auto; /* 防止按钮缩放 */
     }
 
     .playButton:hover {
         transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+        .playButton {
+            height: 80px; /* 在较小屏幕上调整按钮高度 */
+        }
     }
 </style>
 
@@ -222,7 +228,7 @@
     leftArrow.addEventListener('click', (e) => {
         e.stopPropagation(); // 阻止事件冒泡
         buttonWrapper.scrollBy({
-            left: -270, // 向左移动一个按钮的宽度
+            left: -buttonWrapper.clientWidth / 4, // 向左移动一个按钮的宽度
             behavior: 'smooth'
         });
     });
@@ -230,12 +236,11 @@
     rightArrow.addEventListener('click', (e) => {
         e.stopPropagation(); // 阻止事件冒泡
         buttonWrapper.scrollBy({
-            left: 270, // 向右移动一个按钮的宽度
+            left: buttonWrapper.clientWidth / 4, // 向右移动一个按钮的宽度
             behavior: 'smooth'
         });
     });
 </script>
-
 
 			
         </div>
